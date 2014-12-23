@@ -13,6 +13,30 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // 機種の取得
+    NSString *modelname = [ [ UIDevice currentDevice] model];
+    
+    // iPadかどうか判断する
+    if ( ![modelname hasPrefix:@"iPad"] ) {
+        
+        // Windowスクリーンのサイズを取得
+        CGRect r = [[UIScreen mainScreen] bounds];
+        // 縦の長さが480の場合、古いiPhoneだと判定
+        if(r.size.height == 480){
+            // NSLog(@"Old iPhone");
+            //self.mainScreenHeight = r.size.height;
+            self.pagerViewHeight = 355;
+        }else{
+            // NSLog(@"New iPhone");
+            //self.mainScreenHeight = r.size.height;
+            self.pagerViewHeight = 443;
+        }
+    }else{
+        // NSLog(@"iPad");
+        //storyBoardName =@"MainStoryboard_iPad";
+    }
+    
     return YES;
 }
 							

@@ -11,5 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, assign) int mainScreenHeight;
+@property (nonatomic, assign) int pagerViewHeight;
 
 @end
